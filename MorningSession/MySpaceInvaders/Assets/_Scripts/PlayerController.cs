@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //spawn a projectile
-            Instantiate(projectilePrefab, transform.position + new Vector3(1,0,0), Quaternion.identity);
+            Instantiate(projectilePrefab, transform.position + new Vector3(1.5f,0,0), Quaternion.identity);
         }
     }
 }
