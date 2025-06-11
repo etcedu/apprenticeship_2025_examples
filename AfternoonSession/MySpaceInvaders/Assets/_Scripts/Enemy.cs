@@ -30,9 +30,11 @@ public class Enemy : MonoBehaviour
         {
             //If the enemy runs into the player, kill the player
             Destroy(collision.collider.gameObject);
+            GameManager.instance.KillPlayer();
         }
         if (collision.collider.CompareTag("Projectile"))
         {
+            GameManager.instance.KillEnemy();
             //If the enemy runs into a projectile, kill the enemy and the projectile
             Destroy(collision.collider.gameObject);
             Destroy(gameObject);
