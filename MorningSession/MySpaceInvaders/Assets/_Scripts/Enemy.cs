@@ -19,16 +19,18 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided!");
         if (collision.collider.CompareTag("Player"))
         {
             //If the enemy bumps into the player, kill the player
             Destroy(collision.collider.gameObject);
+            GameManager.instance.KilledPlayer();
         }
 
         if (collision.collider.CompareTag("Projectile"))
         {
-            //If the enemy bumps into a projectile, kill this enemy and the projectile
+            //If the enemy bumps into a projectile,add some score
+            GameManager.instance.KilledEnemy();
+            //and kill this enemy and the projectile
             Destroy(collision.collider.gameObject);
             Destroy(gameObject);
         }
