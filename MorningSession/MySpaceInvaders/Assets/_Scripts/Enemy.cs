@@ -23,13 +23,13 @@ public class Enemy : MonoBehaviour
         {
             //If the enemy bumps into the player, kill the player
             Destroy(collision.collider.gameObject);
-            GameManager.instance.KilledPlayer();
+            GameManager.instance.KilledPlayer(collision.collider.gameObject.transform.position);
         }
 
         if (collision.collider.CompareTag("Projectile"))
         {
             //If the enemy bumps into a projectile,add some score
-            GameManager.instance.KilledEnemy();
+            GameManager.instance.KilledEnemy(transform.position);
             //and kill this enemy and the projectile
             Destroy(collision.collider.gameObject);
             Destroy(gameObject);

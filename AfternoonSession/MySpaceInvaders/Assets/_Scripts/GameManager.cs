@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Unity.Properties;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,15 +18,19 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI scoreText, livesText;
     public GameObject playerPrefab;
+    public GameObject explosionPrefab;
 
-    public void KillEnemy()
+    public void KillEnemy(Vector3 position)
     {
         score += 10;
         scoreText.text = "" + score;
+        Instantiate(explosionPrefab, position, Quaternion.identity);
     }
 
-    public void KillPlayer()
+    public void KillPlayer(Vector3 position)
     {
+        Instantiate(explosionPrefab, position, Quaternion.identity);
+
         //If we have lives left, update lives and respawn
         if (lives > 0)
         {

@@ -4,10 +4,27 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public GameObject projectilePrefab;
+    private int counter = 0;
+
+    private PolygonCollider2D collider;
+    private SpriteRenderer renderer;
+
+    private void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<PolygonCollider2D>();
+    }
 
     // FixedUpdate is called once per physics frame (50 times per second)
     void FixedUpdate()
     {
+        counter++;
+        if (counter >= 100)
+        {
+            collider.enabled = true;
+            renderer.color = Color.white;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.position = transform.position + new Vector3(0f, speed, 0f);
