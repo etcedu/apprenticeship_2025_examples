@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             //On the frame the player hits the space bar...
             //Instantiate a projectile one space to the right of the player
-            Instantiate(projectilePrefab, transform.position + new Vector3(1f, 0, 0), Quaternion.identity);
+            Instantiate(projectilePrefab, transform.position + new Vector3(1.4f, 0, 0), Quaternion.identity);
         }
     }
 }
